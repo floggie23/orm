@@ -1,0 +1,38 @@
+<div>
+    <h2>All the users</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Age</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in allusers %}
+            <tr>
+                <td>{{ user.first_name}}</td>
+                <td>{{ user.last_name}}</td>
+                <td>{{ user.email}}</td>
+                <td>{{ user.age}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+
+    <form action="/generate" method="POST">
+        {% csrf_token %}
+    <label for="fn">First Name</label>
+    <input type="text" name="fName" id="fn">
+    <label for="ln">Last Name</label>
+    <input type="text" name="lName" id="ln">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <label for="age">Age </label>
+    <input type="number" name="age" id="age">
+    <button type="submit">Submit</button>
+</form>
+</div>
